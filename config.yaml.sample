@@ -1,0 +1,12 @@
+delicious:
+    username: 'delicious_user'
+    password: 'delicious_password'
+
+wordpress:
+    server: 'example.org'
+    port: 80
+    path: '/wordpress/xmlrpc.php'
+    username: 'wordpress_user'
+    password: 'wordpress_password'
+    blogid: 0
+    post_title: "New del.icio.us bookmarks"

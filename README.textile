@@ -4,20 +4,25 @@ This ruby script connects to a del.icio.us account and fetches the bookmarks cre
 
 This script can be set up as a cron job, to run every Sunday evening for example.
 
+Make sure to enable XML-RPC posting in your WordPress blog, by going to the "Settings / Writing" screen in the administration panel, and then checking the "XML-RPC Enable the WordPress, Movable Type, MetaWeblog and Blogger XML-RPC publishing protocols" checkbox.
+
 h2. Configuration
 
-Before using this script, make sure that the following lines are properly configured:
+Before using this script, make sure to rename "config.yaml.sample" to "config.yaml" and to edit the lines with the proper configuration values:
 
 <pre>
-DELICIOUS_USERNAME = 'delicious_user'
-DELICIOUS_PASSWORD = 'delicious_password'
+delicious:
+    username: 'delicious_user'
+    password: 'delicious_password'
 
-WORDPRESS_SERVER = 'example.com'
-WORDPRESS_PORT = 80
-WORDPRESS_PATH = '/wordpress/xmlrpc.php'
-WORDPRESS_USERNAME = 'wordpress_user'
-WORDPRESS_PASSWORD = 'wordpress_password'
-WORDPRESS_BLOGID = 0
+wordpress:
+    server: 'example.org'
+    port: 80
+    path: '/wordpress/xmlrpc.php'
+    username: 'wordpress_user'
+    password: 'wordpress_password'
+    blogid: 0
+    post_title: "New del.icio.us bookmarks"
 </pre>
 
 h2. License
