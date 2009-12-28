@@ -1,0 +1,25 @@
+h1. Del.icio.us to WordPress
+
+This ruby script connects to a del.icio.us account and fetches the bookmarks created during the last week. If new bookmarks exist in the specified account, it then creates a simple HTML string and uses it as an entry in any WordPress site, via the XML-RPC interface. Otherwise, it does nothing.
+
+This script can be set up as a cron job, to run every Sunday evening for example.
+
+h2. Configuration
+
+Before using this script, make sure that the following lines are properly configured:
+
+<pre>
+DELICIOUS_USERNAME = 'delicious_user'
+DELICIOUS_PASSWORD = 'delicious_password'
+
+WORDPRESS_SERVER = 'example.com'
+WORDPRESS_PORT = 80
+WORDPRESS_PATH = '/wordpress/xmlrpc.php'
+WORDPRESS_USERNAME = 'wordpress_user'
+WORDPRESS_PASSWORD = 'wordpress_password'
+WORDPRESS_BLOGID = 0
+</pre>
+
+h2. License
+
+This script is provided using a liberal BSD license. See the LICENSE file for details.
