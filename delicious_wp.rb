@@ -166,24 +166,24 @@ def post_to_wordpress(title, text)
 end
 
 def main
-  if File.exists?('config.yaml')
-    count = get_delicious_bookmarks_count
-    if count > 0
-      # Limit the amount of bookmarks and add a second between requests
-      # (recommended by the del.icio.us API docs)
-      count = 100 if count > 100
-      sleep(1)
+  count = get_delicious_bookmarks_count
+  if count > 0
+    # Limit the amount of bookmarks and add a second between requests
+    # (recommended by the del.icio.us API docs)
+    count = 100 if count > 100
+    sleep(1)
 
-      bookmarks = get_delicious_bookmarks(count)
-      entry = create_html(bookmarks)
-      puts post_to_wordpress(CONFIG['wordpress']['post_title'], entry)
-    else
-      puts "No new bookmarks"
-    end
+    bookmarks = get_delicious_bookmarks(count)
+    entry = create_html(bookmarks)
+    puts post_to_wordpress(CONFIG['wordpress']['post_title'], entry)
   else
-    puts "You must create a config.yaml file"
+    puts "No new bookmarks"
   end
 end
 
-CONFIG = YAML.load_file('config.yaml')
-main
+if File.exists?('config.yaml')
+  CONFIG = YAML.load_file('config.yaml')
+  main
+else
+  puts "You must create a config.yaml file"
+end
