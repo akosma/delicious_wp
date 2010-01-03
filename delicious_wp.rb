@@ -38,7 +38,7 @@ require "xmlrpc/client"
 $KCODE = 'u'
 
 # Local utility class
-require 'bookmark'
+require File.dirname(__FILE__) + '/bookmark'
 
 # Some constants
 WEEK_SECONDS = 7 * 24 * 60 * 60
@@ -46,7 +46,7 @@ DELICIOUS_SERVER = 'api.del.icio.us'
 DELICIOUS_PORT = 443
 DELICIOUS_DATES_PATH = '/v1/posts/dates'
 DELICIOUS_RECENT_PATH = '/v1/posts/recent?count=%d'
-DELICIOUS_USER_AGENT = 'delicious_wp by akosma 1.1.1'
+DELICIOUS_USER_AGENT = 'delicious_wp by akosma 1.1.2'
 
 def get_delicious_bookmarks_count
   # Connect to delicious and get number 
