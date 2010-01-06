@@ -47,6 +47,13 @@ class Bookmark
   end
   
   def to_s
-    "<a href=\"%s\" target=\"_blank\">%s</a> (%s)\n" % [href, description, self.tags]
+    if extended.length > 0
+      template = "<strong><a href=\"%s\" target=\"_blank\">%s</a></strong><br/>%s<br/>(%s)"
+      result = template % [href, description, extended, self.tags]
+    else
+      template = "<strong><a href=\"%s\" target=\"_blank\">%s</a></strong><br/>(%s)"
+      result = template % [href, description, self.tags]
+    end
+    result
   end
 end
